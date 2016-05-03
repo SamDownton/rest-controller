@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Simple Spring Boot App Home</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styles.css" type="text/css" >
+</head>
+<body>
+<h1>Spring Web Application Home Page</h1>
+<p>There are 4 services running on this server.</p>
+<p>
+    <a href="http://localhost:8080/random">This one:</a>
+    that generates a random number between 0 and 1000
+</p>
+<p>
+    This one which lists the next n numbers
+
+<script>
+    function process()
+    {
+        var url="http://localhost:8080/fountain/list/" + document.getElementById("url").value;
+        location.href=url;
+        return false;
+    }
+</script>
+<form onSubmit="return process();">
+    Number: <input type="text" name="url" id="url"> <input type="submit" value="go">
+</form>
+</p>
+<p>
+    This one will return the last word in the URL as upper case.
+<script>
+    function process2()
+    {
+        var url2="http://localhost:8080/upper/" + document.getElementById("url2").value;
+        location.href=url2;
+        return false;
+    }
+</script>
+<form onSubmit="return process2();">
+    Word: <input type="text" name="url2" id="url2"> <input type="submit" value="go">
+</form>
+</p>
+<p>
+    This one will say hello to you
+    <script>
+        function process3()
+        {
+            var url3="http://localhost:8080/hello?name=" + document.getElementById("url3").value;
+            location.href=url3;
+            return false;
+        }
+    </script>
+<form onSubmit="return process3();">
+    Name: <input type="text" name="url3" id="url3"> <input type="submit" value="go">
+</form>
+</p>
+<p>
+    And <a href="http://localhost:8080/randomword"> this one </a> which returns a random word form a huge list of words.
+</p>
+</body>
+</html>
